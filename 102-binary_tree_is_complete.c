@@ -3,12 +3,12 @@
 #include "binary_trees.h"
 
 /**
- *power - calculates power of a number
+ *num_pow - calculates power of a number
  *@base: base number
  *@exponent: exponent
  *Return: power
  */
-double power(double base, int exponent)
+double num_pow(double base, int exponent)
 {
 	double result = 1.0;
 	int i;
@@ -35,12 +35,12 @@ double power(double base, int exponent)
 }
 
 /**
- * height - function that measures the height of a binary tree
+ * height_bt - function that measures the height of a binary tree
  * If tree is NULL, your function must return 0
  *@tree: Pointer to the root node of the tree to traverse
  * Return: height
 */
-int height(const binary_tree_t *tree)
+int height_bt(const binary_tree_t *tree)
 {
 	int left_height = 0;
 	int right_height = 0;
@@ -48,8 +48,8 @@ int height(const binary_tree_t *tree)
 	if (tree == NULL)
 		return (0);
 
-	left_height = height(tree->left);
-	right_height = height(tree->right);
+	left_height = height_bt(tree->left);
+	right_height = height_bt(tree->right);
 	return ((left_height > right_height ? left_height : right_height) + 1);
 }
 
@@ -64,7 +64,7 @@ binary_tree_t **array_gen(const binary_tree_t *tree)
 {
 	binary_tree_t *current = NULL;
 	int front = 0, rear = 0;
-	int size = power(2, (height(tree) + 1));
+	int size = num_pow(2, (height_bt(tree) + 1));
 	binary_tree_t **queue = NULL;
 
 	if (!tree)
@@ -95,19 +95,19 @@ binary_tree_t **array_gen(const binary_tree_t *tree)
 }
 
 /**
- * count_tree - function that counts the nodes of a binary tree
+ * count_nodes - function that counts the nodes of a binary tree
  *@tree: pointer to a binary tree
  * If tree is NULL, your function must return 0
  * Return: height
 */
 
-int count_tree(const binary_tree_t *tree)
+int count_nodes(const binary_tree_t *tree)
 {
 	int count = 0;
 
 	if (!tree)
 		return (0);
-	count = 1 + count_tree(tree->left) + count_tree((tree->right));
+	count = 1 + count_nodes(tree->left) + count_nodes((tree->right));
 	return (count);
 }
 
@@ -120,7 +120,7 @@ int count_tree(const binary_tree_t *tree)
 
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
-	int j, i = count_tree(tree);
+	int j, i = count_nodes(tree);
 	binary_tree_t **queue = NULL;
 
 	if (!tree)
