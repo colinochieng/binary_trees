@@ -62,7 +62,7 @@ binary_tree_t **array_gen(const binary_tree_t *tree)
 {
 	binary_tree_t *current = NULL;
 	int front = 0, rear = 0;
-	int size = num_pow(2, (height_bt(tree) + 1));
+	int i, size = num_pow(2, (height_bt(tree) + 1));
 	binary_tree_t **queue = NULL;
 
 	if (!tree)
@@ -71,7 +71,7 @@ binary_tree_t **array_gen(const binary_tree_t *tree)
 
 	if (!queue)
 		return (NULL);
-	for (int i = 0; i < size; i++)
+	for (i = 0; i < size; i++)
 		queue[i] = NULL;
 	queue[rear++] = (binary_tree_t *)tree;
 
