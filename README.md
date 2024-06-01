@@ -52,7 +52,7 @@ typedef struct binary_tree_s avl_t;
 typedef struct binary_tree_s heap_t;
 ```
 ```
-PS C:\Users\user\Desktop\colin_study_dox\binary_trees> cat 0-main.c
+PS C:\binary_trees> cat 0-main.c
 #include <stdlib.h>
 #include "binary_trees.h"
 
@@ -78,9 +78,9 @@ int main(void)
     binary_tree_print(root);
     return (0);
 }
-PS C:\Users\user\Desktop\colin_study_dox\binary_trees> ./0-node    
+PS C:\binary_trees> ./0-node    
        .-------(098)-------.
   .--(012)--.         .--(402)--.
 (006)     (016)     (256)     (512)
-PS C:\Users\user\Desktop\colin_study_dox\binary_trees>
+PS C:\binary_trees>
 ```
